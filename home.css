@@ -1,0 +1,94 @@
+/* General container styling for the home page */
+.home-container {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #706666;
+  padding: 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 10px rgba(114, 111, 111, 0.1);
+  z-index: 10;
+}
+
+/* Harsh@Deakin logo on the left side */
+header h1 {
+  color: #070606;
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Centered search bar */
+.search-bar {
+  padding: 10px;
+  width: 40%;
+  max-width: 500px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Right-side button container */
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+/* Post and login button styles */
+button {
+  padding: 10px 80px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-button {
+  background-color: #3328a7;
+  color: white;
+}
+
+.login-button {
+  background-color: #0d00ff;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Make header contrast with background */
+header {
+  background-color: #afa4a4;
+  color: #ffffff;
+  border-bottom: 3px solid #007bff; /* Accent color for better contrast */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 60%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  button {
+    width: 100px;
+  }
+}

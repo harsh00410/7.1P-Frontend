@@ -1,0 +1,107 @@
+/* Styles for the Sign-Up page */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e9ecef; /* Light background for contrast */
+}
+
+.signup-box {
+  background-color: #ffffff;
+  border: 2px solid #007bff; /* Outlined effect */
+  padding: 40px;
+  border-radius: 15px; /* Softer border radius for a modern look */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Deeper shadow for better visual depth */
+  width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.signup-box:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.signup-box h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+.signup-box input {
+  width: 100%;
+  padding: 14px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.signup-box input:focus {
+  border-color: #007bff; /* Border color changes on focus */
+  outline: none;
+}
+
+.signup-box button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-box button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.signup-box p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.signup-box a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.signup-box a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .signup-box {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .signup-box h2 {
+    font-size: 24px;
+  }
+
+  .signup-box input, .signup-box button {
+    font-size: 14px;
+  }
+}
+.login-link {
+  cursor: pointer; 
+}
