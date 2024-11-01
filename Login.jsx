@@ -2,22 +2,28 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from './firebase'; 
 import { signInWithEmailAndPassword } from "firebase/auth"; 
-import './Login.css'; // Ensure the file is named login.css
+import './Login.css'; // Ensure the file is named Login.css
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState(''); // State to hold success or failure message
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setMessage(''); // Clear any previous messages
+
     try {
       await signInWithEmailAndPassword(auth, email, password); 
+      setMessage('Logged in successfully!');
       console.log('Logged in successfully');
-      navigate('/');  // Navigate to the home page after successful login
+      setTimeout(() => {
+        navigate('/');  // Navigate to the home page after a short delay
+      }, 1500); // Optional delay before navigating
     } catch (error) {
       console.error('Error logging in', error);
-      alert(error.message); 
+      setMessage('Error: ' + error.message); // Set the error message
     }
   };
 
@@ -50,6 +56,8 @@ const Login = () => {
         <span className="sign-up-link" onClick={() => navigate('/Signup')}>
           Don't have an account? Sign up
         </span>
+
+        {message && <p className={`message ${message.startsWith('Error') ? 'error' : 'success'}`}>{message}</p>} {/* Display the message */}
       </form>
     </div>
   );
