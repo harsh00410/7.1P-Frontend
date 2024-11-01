@@ -10,13 +10,15 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); 
+  const [message, setMessage] = useState(''); // State for success/failure message
   const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+    setMessage(''); // Clear any previous messages
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      setMessage("Passwords do not match!"); // Set error message
       return;
     }
 
@@ -30,11 +32,14 @@ const SignUp = () => {
         email: email,
       });
 
+      setMessage('User created successfully!'); // Set success message
       console.log('User created successfully');
-      navigate('/login');  // Navigate to login page after successful signup
+      setTimeout(() => {
+        navigate('/login');  // Navigate to login page after a short delay
+      }, 1500);
     } catch (error) {
       console.error('Error signing up', error);
-      alert(error.message); 
+      setMessage('Error: ' + error.message); // Set the error message
     }
   };
 
@@ -82,9 +87,17 @@ const SignUp = () => {
             required
           />
         </div>
-        {/* Remove the onClick from here */}
         <button type="submit">Sign Up</button>
-        <span className="login-link" onClick={() => navigate('/login')}>Back to Login</span>
+        <span className="login-link" onClick={() => navigate('/login')}>
+          Back to Login
+        </span>
+
+        {/* Conditionally render the message */}
+        {message && (
+          <p className={`message ${message.startsWith('Error') ? 'error' : 'success'}`}>
+            {message}
+          </p>
+        )}
       </form>
     </div>
   );
