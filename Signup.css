@@ -105,3 +105,10 @@
 .login-link {
   cursor: pointer; 
 }
+.message.success {
+  color: green;
+}
+
+.message.error {
+  color: red;
+}
